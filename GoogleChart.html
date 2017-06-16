@@ -1,45 +1,24 @@
-<html>
-  <head>
-    <!--Load the AJAX API-->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-
-      // Load the Visualization API and the corechart package.
-      google.charts.load('current', {'packages':['corechart']});
-
-      // Set a callback to run when the Google Visualization API is loaded.
-      google.charts.setOnLoadCallback(drawChart);
-
-      // Callback that creates and populates a data table,
-      // instantiates the pie chart, passes in the data and
-      // draws it.
-      function drawChart() {
-
-        // Create the data table.
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Topping');
-        data.addColumn('number', 'Slices');
-        data.addRows([
-          ['Tokyo', 3],
-          ['New York', 1],
-          ['Berlin', 1],
-          ['London', 1],
-        ]);
-
-        // Set chart options
-        var options = {'title':'Number of Tweets per city',
-                       'width':400,
-                       'height':300};
-
-        // Instantiate and draw our chart, passing in some options.
-        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
-      }
-    </script>
-  </head>
-
-  <body>
-    <!--Div that will hold the pie chart-->
-    <div id="chart_div"></div>
-  </body>
-</html>
+var classicOptions = {
+        title: 'Number of Tweets per city',
+        width: 900,
+        height: 500,
+        // Gives each series an axis that matches the vAxes number below.
+        series: {
+          0: {targetAxisIndex: 0},
+        },
+        vAxes: {
+          // Adds titles to each axis.
+          0: {title: 'Number of tweets'},
+        },
+        hAxis: {
+          ticks: [new Date(2014, 0), new Date(2014, 1), new Date(2014, 2), new Date(2014, 3),
+                  new Date(2014, 4),  new Date(2014, 5), new Date(2014, 6), new Date(2014, 7),
+                  new Date(2014, 8), new Date(2014, 9), new Date(2014, 10), new Date(2014, 11)
+                 ]
+        },
+        vAxis: {
+          viewWindow: {
+            max: 30
+          }
+        }
+      };
